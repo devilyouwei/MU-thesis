@@ -2,7 +2,7 @@
 
 ![Monmouth University](./logo.png)
 
-Youwei's master thesis at Monmouth University
+This is Youwei's master thesis at Monmouth University
 
 Jan 2020
 
@@ -12,8 +12,12 @@ Jan 2020 to Aug 2020
 
 ## Achievements
 
-1. System: resource(education related) and search engine
-2. Master thesis
+1. System
+2. Master Thesis
+
+## Topic
+
+The Search Engine Weighted on Resource Quality for Education and Learning
 
 ## Abstract
 
@@ -27,8 +31,9 @@ Nowadays the most common and convenient way to look for information is searching
 -   UML files for thesis
 -   code (full project refer to [myresource-vue](https://github.com/devilyouwei/myresource-vue) and [myresource-node](https://github.com/devilyouwei/myresource-node))
 -   other documents (not thesis)
+-   test data
 
-## Statistics
+## Storage-Query
 
 The statistics are generated randomly. Use the simulated data to test the search engine system.
 
@@ -36,17 +41,15 @@ The statistics are generated randomly. Use the simulated data to test the search
 
 **Dic 1: 33 keywords**
 
-```
-Redis Remote Dictionary Server is an in-memory data structure project implementing a distributed The project is mainly developed by Salvatore Sanfilippo and as of 2019 is sponsored by Redis Labs It is open-source software released under a BSD 3-clause license
-```
+_Redis Remote Dictionary Server is an in-memory data structure project implementing a distributed The project is mainly developed by Salvatore Sanfilippo and as of 2019 is sponsored by Redis Labs It is open-source software released under a BSD 3-clause license_
 
-### Test Cases Table
+### Test Resources Amount Cases
 
-The table data is used to test 3-layered storage for learning resource system.
+Test search keywords time in 3 layers as the data increase.
 
 -   33 keywords
 -   4 keywords as test cases
--   index number based on 10, 10^0, 10^1, ... 10^6
+-   order of magnitude in the database, generate random resources, index number based on 10, 10^0, 10^1, ... 10^6
 -   static test results, without entering new rows of data
 -   not random page, page 1
 
@@ -78,10 +81,48 @@ Note: million is the max data level, more data need opening to the public networ
 | 2   | 100000 | is          | 88271  | 77922  | 77922  | 0.217  | 0.013  | 0.156  |
 | 3   | 100000 | 2019        | 37902  | 37902  | 37902  | 0.156  | 0.008  | 0.069  |
 | 4   | 100000 | open-source | 37819  | 37819  | 37819  | 0.189  | 0.008  | 0.09   |
-| 1   | 100000 | a           | 953614 | 585595 | 585595 | 1.229  | 0.076  | 0.91   |
-| 2   | 100000 | is          | 881562 | 777936 | 777936 | 1.393  | 0.104  | 1.041  |
-| 3   | 100000 | 2019        | 379714 | 379709 | 379709 | 1.437  | 0.071  | 0.605  |
-| 4   | 100000 | open-source | 379255 | 379246 | 379246 | 1.76   | 0.073  | 0.606  |
+| 1   | 100000 | a           | 953614 | 585595 | 585595 | 1.965  | 0.095  | 0.873  |
+| 2   | 100000 | is          | 881562 | 777936 | 777936 | 2.001  | 0.132  | 1.212  |
+| 3   | 100000 | 2019        | 379714 | 379709 | 379709 | 1.963  | 0.072  | 0.636  |
+| 4   | 100000 | open-source | 379255 | 379246 | 379246 | 2.433  | 0.109  | 0.623  |
+
+### Test Page Cases
+
+Table 2 changed some environment variables. And get a different set of data
+
+-   33 keywords
+-   1 million resources in database
+-   random pages
+-   2 keywords as cases
+
+| id  | keyword      | page  | layer1 | layer2 | layer3 |
+| --- | ------------ | ----- | ------ | ------ | ------ |
+| 1   | a            | 1     | 1.777  | 0.111  | 0.828  |
+| 2   | a            | 100   | 1.675  | 0.084  | 0.848  |
+| 3   | a            | 10000 | 2.528  | 0.261  | 0.925  |
+| 4   | a            | 50000 | 2.991  | 1.6    | 0.884  |
+| 5   | a            | end   | 3.197  | 2.585  | 0.775  |
+| 1   | implementing | 1     | 2.34   | 0.098  | 0.606  |
+| 2   | implementing | 100   | 2.4    | 0.078  | 0.578  |
+| 3   | implementing | 10000 | 2.945  | 0.245  | 0.59   |
+| 4   | implementing | 50000 | 2.678  | 1.973  | 0.597  |
+| 5   | implementing | end   | 3.731  | 1.46   | 0.522  |
+
+### Test Cases under high server pressure
+
+Table 3 run query command under high pressure data operation (insert and update)
+
+-   1 million data is inserting or udpating, high pressure server load, under 100-200 asynchronous reuqets per second.
+-   1 million resources existed in the database
+-   page 100
+-   2 keywords as cases
+
+| id  | keyword      | operation | layer1  | layer2  | layer3  |
+| --- | ------------ | --------- | ------- | ------- | ------- |
+| 1   | a            | insert    | 1.449   | 1.615   | 0.872   |
+| 3   | implementing | insert    | 2.09    | 1.193   | 0.702   |
+| 1   | a            | update    | 207.016 | 338.566 | 89.327  |
+| 2   | implementing | update    | timeout | timeout | timeout |
 
 ## Contributors
 
