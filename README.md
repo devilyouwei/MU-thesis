@@ -52,6 +52,7 @@ Test search keywords time in 3 layers as the data increase.
 -   order of magnitude in the database, generate random resources, index number based on 10, 10^0, 10^1, ... 10^6
 -   static test results, without entering new rows of data
 -   not random page, page 1
+-   not rank
 
 Note: million is the max data level, more data need opening to the public network.
 
@@ -92,8 +93,9 @@ Table 2 changed some environment variables. And get a different set of data
 
 -   33 keywords
 -   1 million resources in database
--   random pages
+-   random pages: 1, 100, 10000, 50000, end
 -   2 keywords as cases
+-   not rank
 
 | id  | keyword      | page  | layer1 | layer2 | layer3 |
 | --- | ------------ | ----- | ------ | ------ | ------ |
@@ -116,13 +118,35 @@ Table 3 run query command under high pressure data operation (insert and update)
 -   1 million resources existed in the database
 -   page 100
 -   2 keywords as cases
+-   not rank
 
 | id  | keyword      | operation | layer1  | layer2  | layer3  |
 | --- | ------------ | --------- | ------- | ------- | ------- |
 | 1   | a            | insert    | 1.449   | 1.615   | 0.872   |
-| 3   | implementing | insert    | 2.09    | 1.193   | 0.702   |
+| 2   | implementing | insert    | 2.09    | 1.193   | 0.702   |
 | 1   | a            | update    | 207.016 | 338.566 | 89.327  |
 | 2   | implementing | update    | timeout | timeout | timeout |
+
+### Test Cases with tanking
+
+-   1 million resources existed in the database
+-   rank = true, false
+-   page 10000
+-   2 keywords as cases
+
+| id  | keyword      | rank  | layer1 | layer2 | layer3 |
+| --- | ------------ | ----- | ------ | ------ | ------ |
+| 1   | a            | false | 2.528  | 0.261  | 0.925  |
+| 1   | a            | true  | 2.999  | 3.005  | 1.684  |
+| 2   | implementing | false | 2.945  | 0.245  | 0.59   |
+| 2   | implementing | true  | 2.522  | 2.532  | 1.095  |
+
+### Test Cases with DLRV rank
+
+-   1 million resources data
+-   rank by DLRV
+-   3 keywords as cases
+-   not randomw page, page 1
 
 ## Contributors
 
