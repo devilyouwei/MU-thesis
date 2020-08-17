@@ -141,13 +141,6 @@ Table 3 run query command under high pressure data operation (insert and update)
 | 2   | implementing | false | 2.945  | 0.245  | 0.59   |
 | 2   | implementing | true  | 2.522  | 2.532  | 1.095  |
 
-### Test Cases with DLRV rank
-
--   1 million resources data
--   rank by DLRV
--   3 keywords as cases
--   not randomw page, page 1
-
 ## Contributors
 
 Youwei Huang
