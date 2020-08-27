@@ -21,7 +21,9 @@ The Search Engine Weighted on Resource Quality for Education and Learning
 
 ## Abstract
 
-Nowadays the most common and convenient way to look for information is searching on Internet. The top Internet search engines are handful, such Google, Bing, Yahoo, Baidu, and so on. They use web crawler technologies to sniff the whole visible network and then provide users simple indexes and links as the results to help users find the source of resources. Most of those Internet search engines have good performance in terms of speed and precise keyword search ability, but wide-range search engines have their cons, such as massive potential results with uncertain quality. The goal of this project is to propose a new search engine, targeting on education, to provide “high quality” learning resources to users. High quality could be an subjective judgement and limited to the resources available for searching. In this project, it refers to means “user-trusted” or “user-liked”, based on common practices in education and learning. A few new search engine technologies are proposed to support efficient storage and enhanced searching for high-quality learning resources, in particular, to address two main issues: (1) how to build such a high-performance search engine; (2) how to define the quality of resources. The details include the strategies designed to optimize general information querying, storage, ranking, and most importantly, finding the relevant learning resources that are “high-quality” for users. Prototyping and experimental study are conducted to conceptually prove this research.
+Today the most common and convenient way to look for information is searching on the Internet. The top Internet search engines are handful, such as Google[ https://www.google.com], Bing[ https://www.bing.com], Baidu[ https://www.baidu.com], and so on. They use web crawler technologies to sniff the whole visible network and then provide users simple indexes and links as the results to help users find the source of resources. Most of those Internet search engines have good performance in terms of speed and precise keyword search ability, but wide-range search engines have their cons, such as massive potential results with uncertain quality. The goal of this project is to propose a new search engine, targeting on education, to provide “valuable” learning resources to users. Being valuable could be an subjective judgement and limited to the resources available for searching. In this project, it refers to means “user-trusted” or “user-liked”, based on common practices in education and learning. A few new technologies are proposed to support efficient storage and enhanced searching for valuable learning resources, in particular, to address two main issues: (1) How to build a high-performance search engine; (2) How to define the value of resources. The details include the strategies designed to optimize general information querying, storage, ranking, and most importantly, finding the relevant learning resources that are “useful” for users. Prototyping and experimental study are conducted to conceptually prove this research.
+
+**Keywords: Search Engine, Education, Learning Resource, Resource Discovery, Resource Value**
 
 ## Assets List
 
@@ -141,19 +143,37 @@ Table 3 run query command under high pressure data operation (insert and update)
 | 2   | implementing | false | 2.945  | 0.245  | 0.59   |
 | 2   | implementing | true  | 2.522  | 2.532  | 1.095  |
 
+## Charts
+
+![experiment1](./assets/charts/ex1.png)
+
+![experiment3](./assets/charts/ex2.png)
+
+![experiment4](./assets/charts/ex3.png)
+
+## Examples
+
+![example1](./assets/charts/ex4.png)
+
+![example2](./assets/charts/ex5.png)
+
+![example3](./assets/charts/ex6.png)
+
 ## Conclusion
 
-Although, at present, all kinds of search engines on the Internet are widely used, deep into people's daily Internet life. Our job is not to recreate a new search engine, but to improve the existing search engine technology. This paper mainly discusses the special search engine in the field of learning and education, which means that the search engine for learning resources is only suitable for learning purposes, and will not be used in the broad sense of search engine content. This is its limitation, but has also given its advantages: (1) Ensure the quality of search results; (2) Let users only focus on learning purpose; (3) Simplify the design and development of search engines.
+Although there are many kinds of search engines that are now an important part of people's daily lives, there is still room to change and improve. This project aimed to create a search engine that is unique and more useful in certain areas. This thesis proposes a novel search engine, specifically for the field of learning and education. It aims to help users to search for learning resources, and not just any learning resources, but those that are “good”, that is, valuable to support individual users’ learning goals.
 
-The research in this paper focuses on two aspects, which are also the two most concerned issues of search engines: (1) search speed, (2) result ranking. Based on the improvement of the traditional search engine and the unique design and development mode in this particular area, this search engine adopts 3-layers storage structure to solve the issue 1. It uses the definition of resource value: DLRV ranking algorithm to solve the issue 2. The search engine is basically successfully applied to collecting and searching learning resources. At the same time, the theory has also been verified in the experimental environment. The results of experiments are basically consistent with the expected theory.
+This search engine’s advantages are the following: (1) ensure the quality of search results, (2) allow users to focus on their learning goals, and (3) ease the development and operation of the search engine system.
+
+This study focused on two main concerns in the area of search engine research and development: (1) search speed and (2) result ranking. This search engine adopts a three-layer storage structure to improve search speed. It uses the LRV ranking algorithm to usefully rank search results. A prototype search engine was successfully built and tested for this research.
 
 ## Future Work
 
-When we do the research on DLRV for learning resource search engine, there are still issues to be found. For example, the "query timeout" occurs when the database is updated under high pressure, the "reliability" of the six characteristics has two weights (refer to the section 5.3.1, B.Reliability) for the cetified personal account and organization which can not be accurately measured for the time being, more data orders need to be challeneged (as 1 billion resources).
+During the research on designing LRV algorithms, two issues were unresolved. A "query timeout" occurs when the database is updated under high pressure. The "Reliability" characteristic of a resource has two weights for the certified personal accounts and organizational accounts which cannot be accurately measured for the time being; more experimental data may be helpful in determining these weights.
 
-The future direction of this research will still focus on solving two basic issues: storage-query and ranking resources based on DLRV. About the paging technology (refer to section 5.2.5) in the 3-layers storage structure, large pages can be further divided into small pages. The issue "query timeout" when updating the information of resources can be improved by adding ECS (Elastic Compute Service) servers like [Amazon EC2](https://en.wikipedia.org/wiki/Amazon_Elastic_Compute_Cloud). About the weight variables in characteristic "Reliability" value calculating, by processing more data fitting, more real user feedback can make a more reasonable weight value.
+The future direction of this research will continue to focus on solving two basic issues: storage-query and ranking resources based on LRV. To improve the paging strategy in the three-layer storage structure, large pages may be further divided into smaller pages. The "query timeout" issue when simultaneously updating resources might be solved by adding ECS (Elastic Compute Service) servers like Amazon EC2[[[25] M. LaMonica. (March 27, 2008) "Amazon Web Services adds 'resiliency' to EC2 compute service" [Online](https://www.cnet.com/news/amazon-web-services-adds-resiliency-to-ec2-compute-service/). The Reliability characteristic weight values could be made more reasonable through more experiments or by using real user feedback.
 
-In addition to solving the more issues found, our system must pass the actual test of Internet running, that means we need to put the software online to the Internet and provide it to students, teachers, institutions, etc. In terms of resource collection, more learning resources need to be published through the vast number of Internet users. We hope that this set of search engine system for learning and educational resources can be widely used in human's Internet learning life.
+As a software application, the system must pass the actual test of running live on the Internet. If more students, teachers, and educational institutions use this system, more resources will be collected and recognized. A practical search engine system for learning and educational resources can benefit many people in this massive and ever-changing knowledge world.
 
 ## Contributors
 
