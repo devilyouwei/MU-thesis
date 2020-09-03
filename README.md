@@ -2,7 +2,7 @@
 
 ![Monmouth University](./logo.png)
 
-This is Youwei's master thesis at Monmouth University
+This is Youwei's thesis at Monmouth University
 
 Jan 2020
 
@@ -13,11 +13,11 @@ Jan 2020 to Aug 2020
 ## Achievements
 
 1. System
-2. Master Thesis
+2. Thesis
 
 ## Topic
 
-The Search Engine Weighted on Resource Quality for Education and Learning
+A Search Engine for Education and Learning
 
 ## Abstract
 
@@ -171,7 +171,7 @@ This study focused on two main concerns in the area of search engine research an
 
 During the research on designing LRV algorithms, two issues were unresolved. A "query timeout" occurs when the database is updated under high pressure. The "Reliability" characteristic of a resource has two weights for the certified personal accounts and organizational accounts which cannot be accurately measured for the time being; more experimental data may be helpful in determining these weights.
 
-The future direction of this research will continue to focus on solving two basic issues: storage-query and ranking resources based on LRV. To improve the paging strategy in the three-layer storage structure, large pages may be further divided into smaller pages. The "query timeout" issue when simultaneously updating resources might be solved by adding ECS (Elastic Compute Service) servers like Amazon EC2[[[25] M. LaMonica. (March 27, 2008) "Amazon Web Services adds 'resiliency' to EC2 compute service" [Online](https://www.cnet.com/news/amazon-web-services-adds-resiliency-to-ec2-compute-service/). The Reliability characteristic weight values could be made more reasonable through more experiments or by using real user feedback.
+The future direction of this research will continue to focus on solving two basic issues: storage-query and ranking resources based on LRV. To improve the paging strategy in the three-layer storage structure, large pages may be further divided into smaller pages. The "query timeout" issue when simultaneously updating resources might be solved by adding ECS (Elastic Compute Service) servers like Amazon EC2 [Online](https://www.cnet.com/news/amazon-web-services-adds-resiliency-to-ec2-compute-service/). The Reliability characteristic weight values could be made more reasonable through more experiments or by using real user feedback.
 
 As a software application, the system must pass the actual test of running live on the Internet. If more students, teachers, and educational institutions use this system, more resources will be collected and recognized. A practical search engine system for learning and educational resources can benefit many people in this massive and ever-changing knowledge world.
 
